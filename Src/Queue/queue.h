@@ -7,8 +7,13 @@ exit code -> meaning
 102 -> Using front on an empty queue
 */
 
-typedef struct QueueNode {
+// Change as per requirements
+typedef struct QueueData {
     int val;
+} QueueData;
+
+typedef struct QueueNode {
+    QueueData data;
     struct QueueNode *prev;
     struct QueueNode *next;
 } QueueNode;
@@ -19,14 +24,11 @@ typedef struct Queue {
     QueueNode *back;
 } Queue;
 
-QueueNode *QueueNodeInit();
 Queue *QueueInit();
 int QueueSize(Queue *q);
 int QueueEmpty(Queue *q);
-void QueueEnqueue(Queue *q, QueueNode *n);
-QueueNode QueueDequeue(Queue *q);
-QueueNode QueueFront(Queue *q);
-void QueueNodePrint(QueueNode *n);  // Implement this function depending on the node, cannot be generalized.
-void QueuePrint(Queue *q);
+void QueueEnqueue(Queue *q, QueueData);
+QueueData QueueDequeue(Queue *q);
+QueueData QueueFront(Queue *q);
 
 #endif

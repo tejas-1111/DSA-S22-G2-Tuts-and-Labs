@@ -3,3 +3,7 @@
 
 #ignore logs
 *.logs
+
+#ignore binaries and object files
+*.out
+*.o
