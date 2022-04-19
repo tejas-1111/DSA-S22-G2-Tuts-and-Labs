@@ -1,9 +1,14 @@
 # ignore vscode settings
 *.vscode
 
-#ignore logs
+# ignore logs
 *.logs
 
-#ignore binaries and object files
+# ignore binaries/executables 
 *.out
+
+# ignore object files
 *.o
+
+# ignore precompiled headers
+*.gch 
