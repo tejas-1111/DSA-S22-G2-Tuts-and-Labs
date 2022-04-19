@@ -1,4 +1,7 @@
 # DSA-S22-G2-Tuts-and-Labs
+**Do not copy code from here (or anywhere from the internet) for assignments/projects**  
+DSA is not just understanding the theory, but also being able to implement it.  
+
 Contains material used for tuts and labs for group G2 during S22 DSA  
 Src contains the codes for the (standard/basic) data structures and algorithms covered in the code  
 Tuts contains the Pdfs and codes related to a specific tutorial  
