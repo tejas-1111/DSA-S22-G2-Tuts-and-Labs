@@ -3,7 +3,7 @@
 DSA is not just understanding the theory, but also being able to implement it.  
 
 Contains material used for tuts and labs for group G2 during S22 DSA  
-Src contains the codes for the (standard/basic) data structures and algorithms covered in the code  
+Src contains the codes for the (standard/basic) data structures and algorithms covered in the course
 Tuts contains the Pdfs and codes related to a specific tutorial  
 Labs containts the Pdfs and codes related to a specific lab  
 
