@@ -2,13 +2,11 @@
 
 #include <stdlib.h>
 
-StackNode *StackNodeInit() {
-    StackNode *n = malloc(sizeof(StackNode));
-    n->down = NULL;
-    n->up = NULL;
-    return n;
-}
-
+/**
+ * @brief Initalizes a Stack and returns a pointer to it
+ *
+ * @return Stack* Pointer to the Stack
+ */
 Stack *StackInit() {
     Stack *s = malloc(sizeof(Stack));
     s->size = 0;
@@ -16,11 +14,46 @@ Stack *StackInit() {
     return s;
 }
 
+/**
+ * @brief Initalizes a node in the Stack dll structure.
+ * Not defined in the header file since this is an internal function
+ * So it should not be available for external use
+ *
+ * @param d The data for the node
+ * @return StackNode* Pointer to the node
+ */
+StackNode *StackNodeInit(StackData d) {
+    StackNode *n = malloc(sizeof(StackNode));
+    n->data = d;
+    n->down = NULL;
+    n->up = NULL;
+    return n;
+}
+
+/**
+ * @brief Returns the number of elements in a stack
+ *
+ * @param s Pointer to the stack
+ * @return int Number of elements in the stack
+ */
 int StackSize(Stack *s) { return s->size; }
 
+/**
+ * @brief Checks if a stack is empty
+ *
+ * @param s Pointer to the stack
+ * @return int 1 if the stack is empty, 0 otherwise
+ */
 int StackEmpty(Stack *s) { return (s->size == 0); }
 
-void StackPush(Stack *s, StackNode *n) {
+/**
+ * @brief Add an element to the top of a stack
+ *
+ * @param s Pointer to the stack
+ * @param d Data to add to the top of the stack
+ */
+void StackPush(Stack *s, StackData d) {
+    StackNode *n = StackNodeInit(d);
     if (s->size == 0) {
         s->top = n;
     } else {
@@ -31,38 +64,39 @@ void StackPush(Stack *s, StackNode *n) {
     s->size += 1;
 }
 
-StackNode StackPop(Stack *s) {
+/**
+ * @brief Remove and return the element at the top of the stack
+ * Exits with error 201 if the stack is empty
+ *
+ * @param s Pointer to the stack
+ * @return StackData The element removed from the stack
+ */
+StackData StackPop(Stack *s) {
     if (s->size == 0) {
-        exit(201);
+        exit(101);
     }
-    StackNode *to_remove = s->top;
-    StackNode *new_top = to_remove->down;
-    to_remove->down = NULL;
     s->size -= 1;
+    StackNode *old_top, *new_top;
+    old_top = s->top;
+    new_top = old_top->down;
     if (new_top != NULL) {
         new_top->up = NULL;
     }
     s->top = new_top;
-    StackNode poped_value = *to_remove;
-    free(to_remove);
-    return poped_value;
+    StackData ret_val = old_top->data;
+    free(old_top);
+    return ret_val;
 }
 
-StackNode StackTop(Stack *s) {
+/**
+ * @brief Returns the element at the top of a stack
+ *
+ * @param s Pointer to the stack
+ * @return StackData The element at the top of the stack
+ */
+StackData StackTop(Stack *s) {
     if (s->size == 0) {
-        exit(202);
+        exit(102);
     }
-    StackNode top_value = *(s->top);
-    top_value.down = NULL;
-    top_value.up = NULL;
-    return top_value;
-}
-
-
-void StackPrint(Stack *s) {
-    StackNode *iter = s->top;
-    while (iter != NULL) {
-        StackNodePrint(iter);
-        iter = iter->down;
-    }
+    return s->top->data;
 }

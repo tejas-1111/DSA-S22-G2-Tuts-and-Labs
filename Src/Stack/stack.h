@@ -7,8 +7,13 @@ exit code -> meaning
 202 -> Using top on an empty stack
 */
 
-typedef struct StackNode {
+// Change as per requirements
+typedef struct StackData {
     int val;
+} StackData;
+
+typedef struct StackNode {
+    StackData data;
     struct StackNode *down;
     struct StackNode *up;
 } StackNode;
@@ -18,14 +23,11 @@ typedef struct Stack {
     StackNode *top;
 } Stack;
 
-StackNode *StackNodeInit();
 Stack *StackInit();
 int StackSize(Stack *s);
 int StackEmpty(Stack *s);
-void StackPush(Stack *s, StackNode *n);
-StackNode StackPop(Stack *s);
-StackNode StackTop(Stack *s);
-void StackNodePrint(StackNode *n);  // Implement this function depending on the node, cannot be generalized.
-void StackPrint(Stack *s);
+void StackPush(Stack *s, StackData);
+StackData StackPop(Stack *s);
+StackData StackTop(Stack *s);
 
 #endif
