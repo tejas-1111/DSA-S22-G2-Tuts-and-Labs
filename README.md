@@ -1,3 +1,9 @@
+
+(May 11, 2022)
+REPO WILL NOT BE UPDATED ANYMORE, REFER TO KUNAL'S REPO FOR FUTURE LAB UPDATES.
+LINKS USED FOR TUT WILL BE SHARED IN THE DISCORD CHANNEL.
+
+
 # DSA-S22-G2-Tuts-and-Labs
 **Do not copy code from here (or anywhere from the internet) for assignments/projects**  
 DSA is not just understanding the theory, but also being able to implement it.  
@@ -21,7 +27,3 @@ Tuts:
 Labs:
 1) Tournament ADT implementation
 2) Using ADTs in code with `.h` and `.o` files of ADTs available, Stacks and Queues ADTs, Deque ADTs
-
-(May 11, 2022)
-REPO WILL NOT BE UPDATED ANYMORE, REFER TO KUNAL'S REPO FOR FUTURE LAB UPDATES.
-LINKS USED FOR TUT WILL BE SHARED IN THE DISCORD CHANNEL.
